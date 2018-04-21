@@ -6,37 +6,6 @@
 <button id="ajaxButton" type="button">Make a request</button>
 <p id="demo"></p>
 
-<?php
-echo "Hello World!";
-$basic  = new \Nexmo\Client\Credentials\Basic(NEXMO_API_KEY, NEXMO_API_SECRET);
-$client = new \Nexmo\Client($basic);
-$message = $client->message()->send([
-    'to' => TO_NUMBER,
-    'from' => 'Acme Inc',
-    'text' => 'A text message sent using the Nexmo SMS API'
-]);
-const Nexmo = require('nexmo');
-
-const nexmo = new Nexmo({
-  apiKey: 'f1384f1c',
-  apiSecret: 'sV9HDzeqW0UKzZA2'
-});
-
-const from = '12017785266';
-const to = '19808298396';
-const text = 'Bananaaaassssssssss';
-
-nexmo.message.sendSms(from, to, text, (error, response) => {
-  if(error) {
-    throw error;
-  } else if(response.messages[0].status != '0') {
-    console.error(response);
-    throw 'Nexmo returned back a non-zero status';
-  } else {
-    console.log(response);
-  }
-});
-?>
 <script>
 (function() {
   var httpRequest;
